@@ -28,7 +28,7 @@ public class Application {
         ShowController showController = context.getBean(ShowController.class);
         BookingController bookingController = context.getBean(BookingController.class);
 
-        System.out.println("Application running now");
+        System.out.println("Application running now\n");
 
         userController.createUser("U1", "User1");
         userController.createUser("U2", "User2");
@@ -77,28 +77,28 @@ public class Application {
 
         // All users :
         List<User> users = userController.getAllUsers();
-        System.out.println("All Users : ");
+        System.out.println("\nAll Users : ");
         for (User user : users)
             System.out.println(user.getName());
 
         // All movies :
         List<Movie> movies = movieController.getAllMovies();
-        System.out.println("All Movies : ");
+        System.out.println("\nAll Movies : ");
         for (Movie movie : movies)
             System.out.println(movie.getName());
 
-        System.out.println("Get User name U1 : " + userController.getUser("U1").getName());
-        System.out.println("Get Movie name M1 : " + movieController.getMovie("M1").getName());
-        System.out.println("Get Theatre name T1 : " + theatreController.getTheatre("T1").getName());
+        System.out.println("\nGet User name U1 : " + userController.getUser("U1").getName());
+        System.out.println("\nGet Movie name M1 : " + movieController.getMovie("M1").getName());
+        System.out.println("\nGet Theatre name T1 : " + theatreController.getTheatre("T1").getName());
 
         // T1 screens
-        System.out.println("Get Theatre screens name T1 : ");
+        System.out.println("\nGet Theatre screens name T1 : ");
         List<Screen> screens = theatreController.getTheatre("T1").getScreens();
         for (Screen screen : screens)
             System.out.println(screen.getName());
 
         // T1 S1 seats
-        System.out.println("Get Theatre screen seats name T1 S1 : ");
+        System.out.println("\nGet Theatre screen seats name T1 S1 : ");
         List<Seat> seats = theatreController.getTheatre("T1").getScreens().get(0).getSeats();
         for (Seat seat : seats)
             System.out.println(seat.getId());
@@ -117,14 +117,14 @@ public class Application {
         List<String> listOfSeatsToBook = new ArrayList<>();
         listOfSeatsToBook.add("A1");
         listOfSeatsToBook.add("A2");
+        System.out.println("\nCreating booking");
         String bookingId = bookingController.createBooking("B1", show1Id, "U1", listOfSeatsToBook);
-
         System.out.println(bookingId);
 
         List<Booking> bookings = bookingController.getAllBookings();
         Booking booking = bookings.get(0);
 
-        System.out.println("Booking details :");
+        System.out.println("\nBooking details :");
         System.out.println("Booking Id : " + booking.getId());
         System.out.println("Booking Show : " + booking.getShow().getId());
         System.out.println("Booking Show : " + booking.getShow().getMovie().getName());
