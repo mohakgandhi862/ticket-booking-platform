@@ -24,4 +24,5 @@ in particular city
 ## Design Principles followed :
 1. Single Responsibility Principle
 2. Dependency Injection
+
 Others are not followed effectively but can be used with interfaces
